@@ -7,7 +7,11 @@ We use xtask to build a small axum server to then serve the wasm, build with `wa
 # Prerequisites
 
 - [Rust installed](https://rust-lang.org/tools/install/)
-- [wasm-pack installed]: `cargo install wasm-pack` (after you installed rust)
+- `wasm-pack` installed: (after you installed rust)
+
+  ```sh
+  cargo install wasm-pack
+  ```
 
 # Run it
 
