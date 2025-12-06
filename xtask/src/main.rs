@@ -40,12 +40,19 @@ serve <port>           builds application and server it under localhost:port
 fn serve(port: u16) -> Result<(), DynError> {
     build_all()?;
     build_wasm()?;
+    serve_wasm(port)?;
+
+    Ok(())
+}
+
+fn serve_wasm(port: u16) -> Result<(), DynError> {
     let server_bin_path = project_root().join("target/release/server");
     let mnist_path = project_root().join("burn_mnist");
     Command::new(server_bin_path)
         .args(&[port.to_string()])
         .current_dir(mnist_path)
         .status()?;
+
     Ok(())
 }
 
